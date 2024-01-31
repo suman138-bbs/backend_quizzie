@@ -6,6 +6,9 @@ import JWT from "jsonwebtoken";
 export const cookieOptions = {
   expires: new Date(Date.now() + 30 * 60 * 1000),
   httpOnly: true,
+  sameSite: "None",
+  secure: true,
+  domain: "https://frontend-quizzie.vercel.app",
 };
 
 export const signUp = asyncHandler(async (req, res) => {
@@ -37,7 +40,11 @@ export const signUp = asyncHandler(async (req, res) => {
   console.log("ACCESS TokenExpiredError", accessToken);
   res.cookie("refresh_token", refreshToken, {
     expires: new Date(Date.now() + 60 * 60 * 1000),
+
     httpOnly: true,
+    sameSite: "None",
+    secure: true,
+    domain: "https://frontend-quizzie.vercel.app",
   });
   res.cookie("access_token", accessToken, cookieOptions);
 
@@ -66,6 +73,9 @@ export const login = asyncHandler(async (req, res) => {
   res.cookie("refresh_token", refreshToken, {
     expires: new Date(Date.now() + 60 * 60 * 1000),
     httpOnly: true,
+    sameSite: "None",
+    secure: true,
+    domain: "https://frontend-quizzie.vercel.app",
   });
 
   res.cookie("access_token", accessToken, cookieOptions);
@@ -95,6 +105,9 @@ export const logout = asyncHandler(async (req, res) => {
   res.cookie("refresh_token", null, {
     expires: new Date(Date.now()),
     httpOnly: true,
+    sameSite: "None",
+    secure: true,
+    domain: "https://frontend-quizzie.vercel.app",
   });
   res.cookie("access_token", null, {
     expires: new Date(Date.now()),
