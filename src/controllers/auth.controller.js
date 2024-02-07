@@ -8,7 +8,7 @@ export const cookieOptions = {
   httpOnly: true,
   sameSite: "None",
   secure: true,
-  domain: "https://frontend-quizzie.vercel.app",
+  // domain: "https://frontend-quizzie.vercel.app",
 };
 
 export const signUp = asyncHandler(async (req, res) => {
@@ -44,7 +44,7 @@ export const signUp = asyncHandler(async (req, res) => {
     httpOnly: true,
     sameSite: "None",
     secure: true,
-    domain: "https://frontend-quizzie.vercel.app",
+    // domain: "https://frontend-quizzie.vercel.app",
   });
   res.cookie("access_token", accessToken, cookieOptions);
 
@@ -75,7 +75,7 @@ export const login = asyncHandler(async (req, res) => {
     httpOnly: true,
     sameSite: "None",
     secure: true,
-    domain: "https://frontend-quizzie.vercel.app",
+    // domain: "https://frontend-quizzie.vercel.app",
   });
 
   res.cookie("access_token", accessToken, cookieOptions);
@@ -107,7 +107,7 @@ export const logout = asyncHandler(async (req, res) => {
     httpOnly: true,
     sameSite: "None",
     secure: true,
-    domain: "https://frontend-quizzie.vercel.app",
+    // domain: "https://frontend-quizzie.vercel.app",
   });
   res.cookie("access_token", null, {
     expires: new Date(Date.now()),
