@@ -13,11 +13,13 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(
   cors({
-    origin: "https://frontend-quizzie.vercel.app",
+    origin: [
+      "https://quizzie123.netlify.app",
+      "https://frontend-quizzie.vercel.app",
+    ],
     credentials: true,
   })
 );
-
 app.use(cookieParser());
 
 app.use("/auth", userRouter);
